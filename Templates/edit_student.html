@@ -1,0 +1,55 @@
+
+{% extends "base.html" %}
+
+{% block title %}Edit Student{% endblock %}
+
+{% block content %}
+
+<div class="form-card">
+    <h1>Edit Student</h1>
+    <p>Update student information.</p>
+
+    <form method="POST"
+          action="{{ url_for('edit', id=student['id']) }}">
+
+        <label for="name">Full Name</label>
+        <input type="text"
+               id="name"
+               name="name"
+               value="{{ student['name'] }}"
+               required>
+
+        <label for="age">Age</label>
+        <input type="number"
+               id="age"
+               name="age"
+               min="1"
+               value="{{ student['age'] }}"
+               required>
+
+        <label for="course">Course</label>
+        <input type="text"
+               id="course"
+               name="course"
+               value="{{ student['course'] }}"
+               required>
+
+        <label for="email">Email</label>
+        <input type="email"
+               id="email"
+               name="email"
+               value="{{ student['email'] }}"
+               required>
+
+        <button type="submit" class="btn full">
+            Update Student
+        </button>
+
+        <a href="{{ url_for('index') }}" class="back-link">
+            Cancel
+        </a>
+
+    </form>
+</div>
+
+{% endblock %}

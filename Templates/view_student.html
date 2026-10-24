@@ -1,0 +1,47 @@
+
+{% extends "base.html" %}
+
+{% block title %}Student Details{% endblock %}
+
+{% block content %}
+
+<div class="form-card">
+    <h1>Student Details</h1>
+    <p>Complete student information.</p>
+
+    <div class="detail-row">
+        <span>Student ID</span>
+        <strong>{{ student['id'] }}</strong>
+    </div>
+
+    <div class="detail-row">
+        <span>Full Name</span>
+        <strong>{{ student['name'] }}</strong>
+    </div>
+
+    <div class="detail-row">
+        <span>Age</span>
+        <strong>{{ student['age'] }}</strong>
+    </div>
+
+    <div class="detail-row">
+        <span>Course</span>
+        <strong>{{ student['course'] }}</strong>
+    </div>
+
+    <div class="detail-row">
+        <span>Email</span>
+        <strong>{{ student['email'] }}</strong>
+    </div>
+
+    <a href="{{ url_for('edit', id=student['id']) }}"
+       class="btn full">
+        Edit Student
+    </a>
+
+    <a href="{{ url_for('index') }}" class="back-link">
+        Back to Home
+    </a>
+</div>
+
+{% endblock %}
